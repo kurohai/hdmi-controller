@@ -1,8 +1,35 @@
 {% extends "layout/layout.html" %}
 {% block body %}
-    <ul> 
+    <ul>
         <p>
-            <a href="{{ url_for('printer') }}">Click here to print!</a>
+            {% for port in ports %}
+                <input class="hdmi-buttons" id="button-port-{{ port }}"  value="{{ port }}" type="button" name="Port {{ port }}" />
+            {% endfor %}
         </p>
     </ul>
+
+
+    <script type="text/javascript">
+
+    function activatePort( event ) {
+      console.log( "Activating: " + event.data.port );
+      $.ajax({
+        type: "POST",
+        url: "/remote/" + event.data.port + "/",
+        // data: { param: text}
+      }).done(function( o ) {
+         // do something
+         console.log("done: " + JSON.stringify(o));
+      });
+
+    }
+
+    var obj = "";
+    for (i = 1; i<=8; i++) {
+        obj = $("#button-port-" + i);
+        obj.click({port: obj.val()}, activatePort)
+    }
+
+    </script>
+
 {% endblock %}

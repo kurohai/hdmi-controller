@@ -69,3 +69,13 @@ h2 {
     background: #F0D6D6;
     padding: 0.5em;
 }
+
+
+.hdmi-buttons {
+    width: 10%;
+    height:3em;
+}
+
+.header-title {
+    text-align: center;
+}

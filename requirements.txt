@@ -2,3 +2,5 @@ Flask
 Flask-WTF
 Jinja2
 Flask-DebugToolbar
+uwsgi
+gevent

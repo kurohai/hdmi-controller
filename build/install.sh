@@ -7,7 +7,7 @@
 # daemon-reload
 # start
 
-rm -vfr /etc/kurohai
+# rm -vfr /etc/kurohaiz
 mkdir -p /etc/kurohai
 cp -vr $PWD/build/* /etc/kurohai/
 

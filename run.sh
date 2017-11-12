@@ -7,4 +7,4 @@
 
 echo $PYTHONPATH
 
-sudo -E $VIRTUAL_ENV/bin/uwsgi --ini ./uwsgi-hdmi-control-ui-devel.ini
+sudo -E /usr/bin/uwsgi --ini ./uwsgi-hdmi-control-ui-devel.ini

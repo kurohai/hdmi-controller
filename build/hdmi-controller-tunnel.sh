@@ -4,7 +4,7 @@ NAME=`basename $0`
 PIDFILE=$PID_DIR/${NAME}.pid
 SCRIPTNAME=/etc/init.d/${NAME}
 PORT=9801
-RSA_KEY=~/.ssh/id_rsa
+RSA_KEY=/home/pi/.ssh/id_rsa
 LOG_DIR=/var/log/autossh
 PID_DIR=/var/run/autossh
 

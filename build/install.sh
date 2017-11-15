@@ -30,7 +30,9 @@ rsync -havt $PWD/build/kurohai-tunnels.service /etc/systemd/system/kurohai-tunne
 rsync -havt $PWD/build/kurohai-hdmi-controller-app.service /etc/systemd/system/kurohai-hdmi-controller-app.service
 
 [ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
-    && export PROJECT_HOME=~
+    && export PROJECT_HOME=/home/pi
+
+export WORKON_HOME=/home/pi/.virtualenvs
 
 workon hdmi-control-ui
 env | egrep -i virt

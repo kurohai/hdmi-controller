@@ -15,3 +15,6 @@ ExecStart=/etc/kurohai/start-app.sh
 
 [Install]
 WantedBy=multi-user.target
+
+
+/mnt/data/code/hdmi-control-ui/build/kurohai-hdmi-controller-app.service

@@ -5,8 +5,8 @@ After=network-online.target
 
 [Service]
 Type=forking
-; Environment="RSA_KEY=/etc/kurohai/ssh/id_rsa"
-; Environment="CONFIG_DIR=/etc/kurohai/tunnels.d"
+Environment="VIRTUAL_ENV=/home/pi/.virtualenvs/hdmi-control-ui"
+Environment="WORKON_HOME=/home/pi/.virtualenvs"
 ; Environment="LOG_DIR=/var/log/autossh"
 ; Environment="PID_DIR=/var/run/autossh"
 ExecStart=/etc/kurohai/start-app.sh

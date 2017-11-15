@@ -8,8 +8,9 @@
 # start
 
 # rm -vfr /etc/kurohaiz
-mkdir -p /etc/kurohai
-cp -vr $PWD/build/* /etc/kurohai/
+mkdir -p /etc/kurohai/tunnels.d
+rsync -havt $PWD/build/start.sh /etc/kurohai/
+chmod +x /etc/kurohai/start.sh
 
 
 chmod 700 /etc/kurohai/ssh
@@ -20,7 +21,8 @@ chown root:root /etc/kurohai/ssh
 chown root:root /etc/kurohai/ssh/id_rsa
 chown root:root /etc/kurohai/ssh/id_rsa.pub
 
-cp $PWD/build/*.sh /etc/kurohai/tunnels.d/
-cp $PWD/build/kurohai-tunnels.service /etc/systemd/system/kurohai-tunnels.service
+
+rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
+rsync -havt $PWD/build/kurohai-tunnels.service /etc/systemd/system/kurohai-tunnels.service
 systemctl daemon-reload
 systemctl start kurohai-tunnels.service

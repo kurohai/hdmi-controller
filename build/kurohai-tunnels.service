@@ -5,11 +5,11 @@ After=network-online.target
 
 [Service]
 Type=forking
-Environment="RSA_KEY=/etc/kurohai/`ssh/id_rsa"
+Environment="RSA_KEY=/etc/kurohai/ssh/id_rsa"
 Environment="CONFIG_DIR=/etc/kurohai/tunnels.d"
 Environment="LOG_DIR=/var/log/autossh"
 Environment="PID_DIR=/var/run/autossh"
-ExecStart=/etc/kurohai/tunnels.d/start.sh
+ExecStart=/etc/kurohai/start.sh
 ExecStop=/bin/kill -s TERM $MAINPID
 
 

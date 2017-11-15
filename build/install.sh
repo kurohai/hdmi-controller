@@ -35,10 +35,13 @@ rsync -havt $PWD/build/kurohai-hdmi-controller-app.service /etc/systemd/system/k
 export WORKON_HOME=/home/pi/.virtualenvs
 
 workon hdmi-control-ui
-env | egrep -i virt
+# env | egrep -i virt
 $VIRTUAL_ENV/bin/pip install -r ./requirements.txt
 
 
 systemctl daemon-reload
+systemctl enable kurohai-tunnels.service
+systemctl enable kurohai-hdmi-controller-app.service
+
 systemctl start kurohai-tunnels.service
 systemctl start kurohai-hdmi-controller-app.service

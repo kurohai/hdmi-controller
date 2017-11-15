@@ -29,7 +29,9 @@ rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
 rsync -havt $PWD/build/kurohai-tunnels.service /etc/systemd/system/kurohai-tunnels.service
 rsync -havt $PWD/build/kurohai-hdmi-controller-app.service /etc/systemd/system/kurohai-hdmi-controller-app.service
 
-source /home/pi/.bashrc
+[ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
+    && export PROJECT_HOME=~
+
 workon hdmi-control-ui
 env | egrep -i virt
 $VIRTUAL_ENV/bin/pip install -r ./requirements.txt

@@ -28,6 +28,13 @@ chown root:root /etc/kurohai/ssh/id_rsa.pub
 rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
 rsync -havt $PWD/build/kurohai-tunnels.service /etc/systemd/system/kurohai-tunnels.service
 rsync -havt $PWD/build/kurohai-hdmi-controller-app.service /etc/systemd/system/kurohai-hdmi-controller-app.service
+
+
+workon hdmi-control-ui
+env | egrep -i virt
+$VIRTUAL_ENV/bin/pip install -r ./requirements.txt
+
+
 systemctl daemon-reload
 systemctl start kurohai-tunnels.service
 systemctl start kurohai-hdmi-controller-app.service

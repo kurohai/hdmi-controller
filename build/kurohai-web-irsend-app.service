@@ -1,0 +1,18 @@
+[Unit]
+Description=Kurohai's Web IR Sender Service
+After=network-online.target
+
+
+[Service]
+Type=forking
+Environment="VIRTUAL_ENV=/home/pi/.virtualenvs/web-irsend"
+Environment="WORKON_HOME=/home/pi/.virtualenvs"
+; Environment="LOG_DIR=/var/log/autossh"
+; Environment="PID_DIR=/var/run/autossh"
+ExecStart=/etc/kurohai/start-app.sh
+; ExecStop=pkill -9 -f ".*uwsgi.*--ini.*uwsgi-web-irsend-devel.ini"
+ExecStop=/bin/kill -s TERM $MAINPID
+
+
+[Install]
+WantedBy=multi-user.target

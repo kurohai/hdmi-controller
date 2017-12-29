@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='hdmi-control',
+    name='controller',
     version='0.1',
     py_modules=[
         'app',

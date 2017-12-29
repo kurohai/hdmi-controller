@@ -1,4 +1,4 @@
-{% extends "layout/layout.html" %}
+{% extends "base/base.html" %}
 {% block body %}
     <form action="{{ url_for('printer') }}" method="post">
         {{ form.csrf_token }}

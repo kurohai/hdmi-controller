@@ -12,6 +12,10 @@
 if [[ -d /etc/kurohai ]];
 then
     rm -vfr /etc/kurohai
+    systemctl disable kurohai-*.service
+    systemctl stop kurohai-*.service
+    rm /etc/systemd/system/kurohai-*.service
+
 fi
 
 # recreate directory structure
@@ -61,14 +65,16 @@ workon hdmi-controller
 
 
 systemctl daemon-reload
-systemctl enable kurohai-tunnels.service
-systemctl enable kurohai-hdmi-controller-app.service
-systemctl enable kurohai-web-irsend-app.service
-systemctl enable kurohai-kurocast-app.service
-systemctl enable rbot-web-app.service
+systemctl enable kurohai-*.service
+# systemctl enable kurohai-tunnels.service
+# systemctl enable kurohai-hdmi-controller-app.service
+# systemctl enable kurohai-web-irsend-app.service
+# systemctl enable kurohai-kurocast-app.service
+# systemctl enable rbot-web-app.service
 
-systemctl start kurohai-tunnels.service
-systemctl start kurohai-hdmi-controller-app.service
-systemctl start kurohai-web-irsend-app.service
-systemctl start kurohai-kurocast-app.service
-systemctl start rbot-web-app.service
+systemctl start kurohai-*.service
+# systemctl start kurohai-tunnels.service
+# systemctl start kurohai-hdmi-controller-app.service
+# systemctl start kurohai-web-irsend-app.service
+# systemctl start kurohai-kurocast-app.service
+# systemctl start rbot-web-app.service

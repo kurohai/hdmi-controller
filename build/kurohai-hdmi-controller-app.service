@@ -11,7 +11,8 @@ Environment="WORKON_HOME=/home/pi/.virtualenvs"
 ; Environment="PID_DIR=/var/run/autossh"
 ExecStart=/etc/kurohai/start-app.sh
 ; ExecStop=pkill -9 -f ".*uwsgi.*--ini.*uwsgi-hdmi-control-ui-devel.ini"
-ExecStop=/bin/kill -s TERM $MAINPID
+; ExecStop=/bin/kill -s TERM $MAINPID
+ExecStop=sudo pkill -9 -f ".*/uwsgi --ini ./uwsgi.*.ini"
 
 
 [Install]

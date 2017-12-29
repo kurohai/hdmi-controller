@@ -51,15 +51,17 @@ chown root:root /etc/kurohai/ssh/id_rsa.pub
 rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
 rsync -havt $PWD/build/*.service /etc/systemd/system/
 
-
+echo one
 [ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
     && export PROJECT_HOME=/mnt/data/code
 
+echo two
 
 export WORKON_HOME=/home/pi/.virtualenvs
 
+echo three
 
-workon hdmi-controller
+# workon hdmi-controller
 
 # $VIRTUAL_ENV/bin/pip install -r ./requirements.txt
 
@@ -72,6 +74,7 @@ systemctl enable kurohai-*.service
 # systemctl enable kurohai-kurocast-app.service
 # systemctl enable rbot-web-app.service
 
+echo four
 systemctl start kurohai-*.service
 # systemctl start kurohai-tunnels.service
 # systemctl start kurohai-hdmi-controller-app.service

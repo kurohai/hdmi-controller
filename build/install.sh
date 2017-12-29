@@ -65,8 +65,10 @@ systemctl enable kurohai-tunnels.service
 systemctl enable kurohai-hdmi-controller-app.service
 systemctl enable kurohai-web-irsend-app.service
 systemctl enable kurohai-kurocast-app.service
+systemctl enable rbot-web-app.service
 
 systemctl start kurohai-tunnels.service
 systemctl start kurohai-hdmi-controller-app.service
 systemctl start kurohai-web-irsend-app.service
 systemctl start kurohai-kurocast-app.service
+systemctl start rbot-web-app.service

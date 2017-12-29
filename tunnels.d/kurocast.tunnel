@@ -13,6 +13,4 @@ export AUTOSSH_PIDFILE=${PIDFILE}
 export AUTOSSH_LOGLEVEL=7
 export AUTOSSH_LOGFILE=${LOG_DIR}/${NAME}.log
 
-
 /usr/lib/autossh/autossh -M ${MONITOR_PORT} -f -i ${RSA_KEY} -nNTfR ${LOCAL_PORT}:localhost:${REMOTE_PORT}  root@kurohai.com
-

@@ -1,0 +1,15 @@
+[Unit]
+Description=Kurohai's Kurocast Service
+After=network-online.target
+
+
+[Service]
+Type=forking
+Environment="VIRTUAL_ENV=/home/pi/.virtualenvs/kurocast"
+Environment="WORKON_HOME=/home/pi/.virtualenvs"
+ExecStart=/etc/kurohai/start-kurocast-app.sh
+ExecStop=/bin/kill -s TERM $MAINPID
+
+
+[Install]
+WantedBy=multi-user.target

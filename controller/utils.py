@@ -1,7 +1,4 @@
-import click
 import serial
-import time
-
 from codes import ports
 from config import DefaultConfig
 from log_config import log

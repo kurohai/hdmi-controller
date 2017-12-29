@@ -1,8 +1,18 @@
-Flask
-Flask-WTF
-Jinja2
-# Flask-DebugToolbar
-uwsgi
-gevent
 click==6.4
+Flask-WTF==0.14.2
+Flask==0.12.2
+gevent==1.2.2
+greenlet==0.4.12
+itsdangerous==0.24
+Jinja2==2.10
+MarkupSafe==1.0
 pyserial==3.4
+uWSGI==2.0.15
+Werkzeug==0.12.2
+WTForms==2.1
+
+
+
+# not sure this is needed #
+# no use in prod
+# Flask-DebugToolbar==0.10.1 #

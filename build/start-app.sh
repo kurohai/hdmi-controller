@@ -1,8 +1,8 @@
 #!/bin/bash
 
-cd /home/pi/hdmi-controller
+cd /mnt/data/code/media-voice-control
 
-sudo pkill -9 -f "/usr/bin/uwsgi --ini ./uwsgi-hdmi-control-ui-devel.ini"
+sudo pkill -9 -f ".*/uwsgi --ini ./uwsgi.*.ini"
 # workon hdmi-control-ui
 
 # $VIRTUAL_ENV/bin/pip install -r ./requirements.txt

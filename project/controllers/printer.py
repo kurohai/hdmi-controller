@@ -21,7 +21,7 @@ class CreateForm(FlaskForm):
 @app.route('/')
 def start():
 
-    return render_template('printer/index.html', ports=ports)
+    return render_template('public/index.html', ports=ports)
 
 
 @app.route('/print/', methods=['GET', 'POST'])
@@ -31,8 +31,8 @@ def printer():
         from project.models.Printer import Printer
         printer = Printer()
         printer.show_string(form.text.data)
-        return render_template('printer/index.html', ports=ports)
-    return render_template('printer/print.html', form=form, ports=ports)
+        return render_template('public/index.html', ports=ports)
+    return render_template('public/print.html', form=form, ports=ports)
 
 
 @app.route('/remote/<int:port>/', methods=['GET', 'POST'])

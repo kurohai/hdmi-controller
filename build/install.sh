@@ -7,16 +7,34 @@
 # daemon-reload
 # start
 
+while getopts ":c" opt; do
+  case $opt in
+    c)
+      echo "Clean build triggered" >&2
+      if [[ -d /etc/kurohai ]];
+      then
+          rm -vfr /etc/kurohai
+          systemctl disable kurohai-*.service
+          systemctl stop kurohai-*.service
+          rm -v /etc/systemd/system/kurohai-*.service
+      fi
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG" >&2
+      ;;
+  esac
+done
+
 
 # remove all old files
-if [[ -d /etc/kurohai ]];
-then
-    rm -vfr /etc/kurohai
-    systemctl disable kurohai-*.service
-    systemctl stop kurohai-*.service
-    rm /etc/systemd/system/kurohai-*.service
+# if [[ -d /etc/kurohai ]];
+# then
+#     rm -vfr /etc/kurohai
+#     systemctl disable kurohai-*.service
+#     systemctl stop kurohai-*.service
+#     rm -v /etc/systemd/system/kurohai-*.service
 
-fi
+# fi
 
 # recreate directory structure
 mkdir -p /etc/kurohai/tunnels.d

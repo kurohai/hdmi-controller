@@ -3,13 +3,19 @@
 NAME=`basename $0`
 PIDFILE=${PID_DIR}/${NAME}.pid
 SCRIPTNAME=/etc/init.d/${NAME}
-PORT=9803
+MONITOR_PORT=9803
 
-export AUTOSSH_PORT=${PORT}
+LOCAL_PORT=9002
+LOCAL_HOST=localhost
+REMOTE_PORT=9002
+
+REMOTE_USER=root
+REMOTE_HOST=kurohai.com
+
+export AUTOSSH_PORT=${MONITOR_PORT}
 export AUTOSSH_PIDFILE=${PIDFILE}
 export AUTOSSH_LOGLEVEL=7
 export AUTOSSH_LOGFILE=${LOG_DIR}/${NAME}.log
 
 
-/usr/lib/autossh/autossh -M ${PORT} -f -i ${RSA_KEY} -nNTfR 9002:localhost:9002  root@kurohai.com
-
+/usr/lib/autossh/autossh -M ${MONITOR_PORT} -f -i ${RSA_KEY} -nNTfR ${LOCAL_PORT}:${LOCAL_HOST}:${REMOTE_PORT} ${REMOTE_USER}@${REMOTE_HOST}

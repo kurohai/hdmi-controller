@@ -86,14 +86,15 @@ echo three
 
 
 systemctl daemon-reload
-systemctl enable kurohai-*.service
-# systemctl enable kurohai-tunnels.service
-# systemctl enable kurohai-hdmi-controller-app.service
-# systemctl enable kurohai-web-irsend-app.service
-# systemctl enable kurohai-kurocast-app.service
+# systemctl enable kurohai-*.service
+systemctl enable kurohai-tunnels.service
+systemctl enable kurohai-hdmi-controller-app.service
+systemctl enable kurohai-web-irsend-app.service
+systemctl enable kurohai-kurocast-app.service
 # systemctl enable rbot-web-app.service
 
 echo four
+systemctl stop kurohai-*.service
 systemctl start kurohai-*.service
 # systemctl start kurohai-tunnels.service
 # systemctl start kurohai-hdmi-controller-app.service

@@ -67,6 +67,7 @@ chown root:root /etc/kurohai/ssh/id_rsa.pub
 
 
 rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
+chmod 775 -R /etc/kurohai/tunnels.d/
 rsync -havt $PWD/build/*.service /etc/systemd/system/
 
 echo one

@@ -70,15 +70,15 @@ rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
 chmod 775 -R /etc/kurohai/tunnels.d/
 rsync -havt $PWD/build/*.service /etc/systemd/system/
 
-echo one
-[ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
-    && export PROJECT_HOME=/mnt/data/code
+# echo one
+# [ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
+#     && export PROJECT_HOME=/mnt/data/code
 
-echo two
+# echo two
 
-export WORKON_HOME=/home/pi/.virtualenvs
+# export WORKON_HOME=/home/pi/.virtualenvs
 
-echo three
+# echo three
 
 # workon hdmi-controller
 

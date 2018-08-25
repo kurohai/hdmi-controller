@@ -5,6 +5,7 @@ After=network-online.target
 
 [Service]
 Type=forking
+Restart=always
 Environment="RSA_KEY=/etc/kurohai/ssh/id_rsa"
 Environment="CONFIG_DIR=/etc/kurohai/tunnels.d"
 Environment="LOG_DIR=/var/log/autossh"

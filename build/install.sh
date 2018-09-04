@@ -67,17 +67,18 @@ chown root:root /etc/kurohai/ssh/id_rsa.pub
 
 
 rsync -havt $PWD/tunnels.d/ /etc/kurohai/tunnels.d/
+chmod 775 -R /etc/kurohai/tunnels.d/
 rsync -havt $PWD/build/*.service /etc/systemd/system/
 
-echo one
-[ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
-    && export PROJECT_HOME=/mnt/data/code
+# echo one
+# [ -f "/usr/local/bin/virtualenvwrapper.sh" ] && source "/usr/local/bin/virtualenvwrapper.sh" \
+#     && export PROJECT_HOME=/mnt/data/code
 
-echo two
+# echo two
 
-export WORKON_HOME=/home/pi/.virtualenvs
+# export WORKON_HOME=/home/pi/.virtualenvs
 
-echo three
+# echo three
 
 # workon hdmi-controller
 
@@ -85,14 +86,15 @@ echo three
 
 
 systemctl daemon-reload
-systemctl enable kurohai-*.service
-# systemctl enable kurohai-tunnels.service
-# systemctl enable kurohai-hdmi-controller-app.service
-# systemctl enable kurohai-web-irsend-app.service
-# systemctl enable kurohai-kurocast-app.service
+# systemctl enable kurohai-*.service
+systemctl enable kurohai-tunnels.service
+systemctl enable kurohai-hdmi-controller-app.service
+systemctl enable kurohai-web-irsend-app.service
+systemctl enable kurohai-kurocast-app.service
 # systemctl enable rbot-web-app.service
 
 echo four
+systemctl stop kurohai-*.service
 systemctl start kurohai-*.service
 # systemctl start kurohai-tunnels.service
 # systemctl start kurohai-hdmi-controller-app.service

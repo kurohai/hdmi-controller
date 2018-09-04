@@ -4,3 +4,6 @@
 *.DS_STORE
 allocated-ports.txt
 sftp-config.json
+archive/
+*.log
+log.*?/

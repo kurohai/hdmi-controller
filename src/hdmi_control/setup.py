@@ -1,13 +1,14 @@
 from setuptools import setup
 
 setup(
-    name='controller',
-    version='0.1',
+    name='hdmi-controller',
+    version='0.0.1',
     py_modules=[
         'app',
         'codes',
-        'log_config',
-        'dicto',
+        'logutil',
+        'utils',
+        'models',
         'config',
     ],
     include_package_data=True,

@@ -2,13 +2,13 @@ import click
 import serial
 import time
 
-from codes import ports
+from codes import ports, Ports
 from config import DefaultConfig
 from log_config import log
 from log_config import logging
 from utils import loglevelset
 from utils import serial_setup
-
+import time
 
 @click.group()
 def cli():
@@ -39,11 +39,13 @@ def function_test(debug):
 @click.option('--debug', '-d', is_flag=True, default=False)
 def hdmi_input_switch(port, debug):
     loglevelset(debug)
+    hp = Ports()
     com = serial_setup()
     com.reset_input_buffer()
     com.reset_output_buffer()
     code = ports['p0{0}'.format(int(port))]
     com.write(code)
+    time.sleep(2)
     log.info('Activated port {0}'.format(int(port)))
     log.debug(com.in_waiting)
     log.debug(com.read(com.in_waiting).encode('hex'))

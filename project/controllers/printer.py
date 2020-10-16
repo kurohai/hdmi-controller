@@ -1,15 +1,21 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
+
+import os
+import sys
+
+from flask import Blueprint
 from flask import jsonify
 from flask import redirect
 from flask import render_template
-from flask import request, Blueprint
+from flask import request
 from flask_wtf import FlaskForm
+from pprint import pprint
 from project import app
 from project import hdmi_input_control
 from wtforms import StringField
 from wtforms.validators import DataRequired
-# from loguitl import get_logger
-
 
 ports = [i + 1 for i in xrange(8)]
 bp = Blueprint('hdmi', __name__)

@@ -2,73 +2,16 @@
 {% block body %}
     <ul>
         <p>
-            {% for port in ports %}
-                <input class="hdmi-buttons" id="button-port-{{ port }}"  value="{{ port }}" type="button" name="Port {{ port }}" />
+            {% for o in outlets %}
+                <input class="hdmi-buttons" id="outlet-power-on-{{ o.name }}"  value="{{ o['name'] }}" type="button" name="Outlet {{ o.name }}" />
+                <input class="hdmi-buttons" id="outlet-power-off-{{ o.name }}"  value="{{ o['name'] }}" type="button" name="Outlet {{ o.name }}" />
             {% endfor %}
-                <input class="hdmi-buttons" id="outlet-power-on-1"  value="1 on" type="button" name="Outlet 1" />
-                <input class="hdmi-buttons" id="outlet-power-off-1"  value="1 off" type="button" name="Outlet 1" />
         </p>
     </ul>
 
 
-    <script type="text/javascript" src="js/mcp-outlet-api.js">
-
     <script type="text/javascript">
 
-    function activatePort( event ) {
-      console.log( "Activating: " + event.data.port );
-      $.ajax({
-        type: "POST",
-        url: "/remote/" + event.data.port + "/",
-        // data: { param: text}
-      }).done(function( o ) {
-         // do something
-         console.log("done: " + JSON.stringify(o));
-      });
-
-    }
-
-    // function outletPowerOn( event ) {
-    //   console.log( "Outlet power on: " + event.data.outlet );
-    //   $.ajax({
-    //     type: "GET",
-    //     // url: "https://mcp.kurohai.com/api/v1/outlets/main-strip-01/control/on/" + event.data.outlet + "/",
-    //     url: "http://mcp.kurohai.com:9002/api/v1/outlets/main-strip-01/control/on/" + event.data.outlet + "/",
-    //     // data: { param: text}
-    //   }).done(function( o ) {
-    //      // do something
-    //      console.log("done: " + JSON.stringify(o));
-    //   });
-
-    // }
-    // function outletPowerOff( event ) {
-    //   console.log( "Outlet power on: " + event.data.outlet );
-    //   $.ajax({
-    //     type: "GET",
-    //     url: "http://mcp.kurohai.com:9002/api/v1/outlets/main-strip-01/control/off/" + event.data.outlet + "/",
-    //     // data: { param: text}
-    //   }).done(function( o ) {
-    //      // do something
-    //      console.log("done: " + JSON.stringify(o));
-    //   });
-
-    // }
-
-    var obj = "";
-    for (i = 1; i<=8; i++) {
-        obj = $("#button-port-" + i);
-        obj.click({port: obj.val()}, activatePort)
-    }
-    // var objOn = "";
-    // for (i = 1; i<=4; i++) {
-    //   objOn = $("#outlet-power-on-" + i);
-    //   objOn.click({outlet: objOn.val()}, outletPowerOn)
-    // }
-    // var objOff = "";
-    // for (i = 1; i<=4; i++) {
-    //   objOff = $("#outlet-power-off-" + i);
-    //   objOff.click({outlet: objOff.val()}, outletPowerOff)
-    // }
 
     </script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/mcp-outlet-api.js') }}"></script>
